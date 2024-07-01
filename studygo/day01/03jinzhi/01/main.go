@@ -12,4 +12,9 @@ func main() {
 	var b int = 077
 	fmt.Printf("%o \n", b)
 
+	//十六进制 以0x开头
+	var c int = 0xff
+	fmt.Printf("%x \n", c)
+	fmt.Printf("%X \n", c)
+
 }

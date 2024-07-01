@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"strings"
+)
 
 func variable() {
 	fmt.Println("============声明变量==========")
@@ -105,6 +109,59 @@ func constVariable() {
 
 }
 
+func floatVariable() {
+	fmt.Println("============浮点数==========")
+	fmt.Printf("%f\n", math.Pi)
+	fmt.Printf("%.2f\n", math.Pi) //保留2位小数
+}
+
+func stringVariable() {
+	fmt.Println("============字符串==========")
+	//字符串
+	fmt.Println("str :=\"c:\\windows\\studygo\\go.exe\"")
+	s1 := `
+	this is my test
+	多行文本
+	原样输出
+	`
+	fmt.Println(s1)
+
+	s2 := "hello world"
+	fmt.Println(len(s2))
+
+	s3 := "hello,this is go, just do it"
+	fmt.Println(strings.Split(s3, ","))     //分隔字符串
+	fmt.Println(strings.Contains(s3, "go")) //是否包含go字符串
+	fmt.Println(strings.Index(s3, "o"))     //子串出现的位置
+	fmt.Println(strings.LastIndex(s3, "o")) //子串最后出现的位置
+
+	fmt.Println("============byte和rune类型==========")
+	s := "hello沙河"
+	for i := 0; i < len(s); i++ {
+		fmt.Printf("%v(%c)", s[i], s[i])
+	}
+	fmt.Println()
+	for i, r := range s {
+		fmt.Printf("%d----%v(%c)", i, r, r)
+	}
+	fmt.Println()
+
+}
+
+func changeString() {
+	fmt.Println("============修改字符串==========")
+	s := "big"
+	byteS1 := []byte(s)
+	byteS1[0] = 'p'
+	fmt.Println(string(byteS1))
+
+	s2 := "白萝卜"
+	runeS2 := []rune(s2)
+	runeS2[0] = '红'
+	fmt.Println(string(runeS2))
+
+}
+
 func foo() (int, string) {
 	return 10, "hello"
 }
@@ -112,5 +169,8 @@ func foo() (int, string) {
 func main() {
 	variable()
 	constVariable()
+	floatVariable()
+	stringVariable()
+	changeString()
 
 }

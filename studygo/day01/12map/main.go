@@ -69,4 +69,30 @@ func main() {
 	}
 
 	fmt.Println("========================================")
+
+	type MapHolder struct {
+		MyMap map[string]int
+	}
+
+	// 创建一个MapHolder类型的数组
+	mapArray := make([]MapHolder, 2)
+
+	// 初始化数组中的map
+	mapArray[0].MyMap = map[string]int{"one": 1, "two": 2}
+	mapArray[1].MyMap = map[string]int{"three": 3, "four": 4}
+	fmt.Println(mapArray)
+
+	type Student struct {
+		Name string
+		Age  int
+		Sex  string
+	}
+
+	students := []Student{}
+	// 动态添加元素到切片
+	students = append(students, Student{Name: "张三", Age: 18, Sex: "男"})
+	students = append(students, Student{Name: "李四", Age: 17, Sex: "女"})
+
+	fmt.Println(students)
+
 }
